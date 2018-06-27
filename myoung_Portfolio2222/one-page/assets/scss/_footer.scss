@@ -1,0 +1,27 @@
+/*
+Footer styles
+*/
+
+.footer{
+    padding-top: 30px;
+    background: #222;
+    font-size:13px;
+    span{
+        color: #fff;
+        display: block;
+    }
+    ul{
+        margin: 0;
+        padding: 0px;
+        li{
+            margin:2px 5px;
+            a{
+                color:#fff;
+                
+                &:hover{
+                    color:$skin-color;
+                }
+            }
+        }
+    }
+}

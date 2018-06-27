@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNet.Identity
+
+<nav class="navbar-toggleable-lg sticky-header navbar-light" style="background-color: grey; height: 120px">
+	<div class="col-xs-2" style="font-size:20px; text-align: left; font-family:'Comic Sans MS'; color:white; padding-top:8px">
+		<a href="@Url.Action("Index", "Home")" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" 
+		   class="nav-link active" style="color:white; text-shadow: 2px green !important">Portfolio
+		</a>
+	</div>
+	@if (Request.IsAuthenticated)
+	{
+	@*<div class="navbarName col-xs-8 text-center" >
+		<a href="@Html.ActionLink("Hi " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })"></a> </div>*@
+		<div class="navbarName col-xs-8 text-center" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'" style="font-size:28px; font-family:'Comic Sans MS'">@Html.ActionLink("Hi " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" }) </div>
+	}
+				else
+				{
+		<div class="navbarName col-xs-8 text-center" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='white'" style="font-size:28px; font-family:'Comic Sans MS'"></div>
+
+	}
+			<div class="col-xs-2">
+				@if (Request.IsAuthenticated)
+		{
+			using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+			{
+				@Html.AntiForgeryToken()
+				<div class="row">
+							<div style="font-size:20px; color: white; text-align:right; padding-right:10px">
+
+								<div><a href="@Url.Action("Index", "Posts")">M.Y. Blog</a></div>
+								<div>@*@Html.ActionLink("Hi " + User.Identity.GetUserName() + "! Change Settings Here", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+								</div>
+
+								<div><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></div>
+							</div>
+						</div>
+				}
+			}
+			else
+			{
+					<div>
+						<div style="font-size:20px; color:white !important; text-align:right; padding-right:10px">						
+							<div><a href="@Url.Action("Index", "Posts")">M.Y. Blog</a></div>
+							<div>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>						
+							<div>@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+						</div>
+					</div>
+			}
+			</div>
+		</nav>
+	 
+
+@*<div class="container">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="pull-right" >*@
+
+
+
+@*<div class="col-xs-3" style="font-size:30px">
+		<div><a href="https://www.linkedin.com/in/martin-young-908908134" target="_blank"><i class="ion-social-linkedin"></i></a></div>
+	</div>*@
+
+
+@*</div>
+	</div>*@

@@ -1,0 +1,47 @@
+/**offcanvas navigation**/
+.offcanvas-btn{
+   position: fixed;
+   right: 30px;
+   top: 7px;
+   .menu-btn{
+       border: 0px;
+       background: $skin-color;
+       color: #fff;
+       font-size: 23px;
+       width: 32px;
+       height: 32px;
+       line-height: 32px;
+       text-align: center;
+       cursor: pointer;
+   }
+}
+.offcanvas-navbar{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    z-index: 9999;
+    background: transparent;
+    .container-fluid{
+        width: 100%;
+    }
+}
+.pushy a,.pushy-submenu > button{
+    padding: 10px 20px;
+    font-family: $title-font;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+.pushy .pushy-link.active a{
+    color: #fff;
+   @include transition(all 0.3s);
+}
+.pushy-submenu li a{
+    &:hover{
+        color: #fff;
+        background: transparent;
+    }
+}

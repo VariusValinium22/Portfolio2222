@@ -1,0 +1,69 @@
+﻿@model myoung_Portfolio2222.Models.Post
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body data-spy="scroll">
+<hr/>
+	<div id="preloader">
+		<div id="preloader-inner"></div>
+	</div>    
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 offset-xs-2">
+				<div class="post-detail">
+					@*<img src="~/one-page/assets/images/PeaCockSpiral.jpg" alt="" class="img-fluid margin-b-20">*@
+					<h2 class="text-center">@Model.Title</h2>
+					<h5>@Model.CreationDate</h5>					
+					<p>
+						@Html.Raw(Model.Body)
+					</p>
+				</div>
+				<hr>
+
+				<h3 class="margin-b-40">Comments</h3>
+
+				@foreach (var comment in Model.Comments)
+				{
+					if (comment != null && comment.AuthorId != null)
+					{
+						<div class="clearfix">
+							<div class="comment-thumb">
+								<img src="" alt="" width="70">
+							</div>
+							<div class="comment-content">
+								@*<h5>@comment.Author.FullName on @comment.CreationDate<a href="#">Reply</a></h5>*@
+								<p>@comment.Body</p>
+							</div>
+						</div>
+						<p style="margin: 0px 0px 0px 0px;">
+
+							@if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+							{
+								@Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id }, null) <span> | </span>
+								@Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, null)
+							}
+						</p>
+					}
+				}
+
+				<hr>
+				<div class="col-xs-12">
+
+					@using (Html.BeginForm("CreateComment", "Posts"))
+					{
+						@Html.AntiForgeryToken()
+						<input type="number" name="PostId" value="@Model.Id" hidden />
+						<textarea class="commentBox" type="text" name="Body" rows="5" style="width: 100%; max-width: 100%" required></textarea> <br />
+						<input class="btn btn-warning" type="submit" value="Leave a Comment" />
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#" class="scrollToTop"><i class="ion-android-arrow-dropup-circle"></i></a>
+	
+	<!-- jQuery plugins-->
+</body>
+</html>
+

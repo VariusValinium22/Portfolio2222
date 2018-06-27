@@ -1,0 +1,144 @@
+﻿@model IPagedList<myoung_Portfolio2222.Models.Post>
+@using PagedList;
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@{
+	ViewBag.Title = "Index";
+}
+@using (Html.BeginForm("Index", "Posts", FormMethod.Post))
+{
+	<div style="padding-left:50px">
+		<input style="font-size: 40px" name="searchStr" type="text" placeholder="Search" value="@ViewBag.Search" />  @*searchStr is the name of the parameter that you are passing in the controller so it will pass*@
+		<button style="font-size: 40px" class="btn btn-primary" type="submit">Search</button>
+	</div>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Valinium</title>
+
+	<!-- plugins -->
+	@*<link href="~/one-page/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="~/one-page/assets/ionicons/css/ionicons.min.css" rel="stylesheet">
+		<link href="~/one-page/assets/bower_components/flexslider/flexslider.css" rel="stylesheet">
+		<link rel='stylesheet' type="text/css" href="assets/dzsparallaxer/dzsparallaxer.css" />*@
+	<!--main css file-->
+	@*<link href="~/one-page/assets/css/style.css" rel="stylesheet">*@
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body data-spy="scroll">
+	<div id="preloader">
+		<div id="preloader-inner"></div>
+	</div><!--/preloader-->
+	<div class="row">
+		<div class="col-xs-12">
+			<center>
+				@if (User.IsInRole("Admin"))
+			{
+					@Html.ActionLink("Create New Post", "Create")
+			}
+			</center>
+
+			@*<div style="font-size:30px; color:blue; font-weight:bold" class="nav-item">
+					<a href="@Url.Action("Index", "Home")" class="nav-link ">Portfolio</a>
+				</div>*@
+			<div style="border-bottom:6px solid #000000"></div>
+			<hr />
+
+		</div>
+	</div>
+
+
+
+	<div class="container" style="color:green !important">
+		<div class="">
+			<div style="color: green !important">
+				@foreach (var item in Model)
+				{
+					@Html.HiddenFor(modelItem => item.MediaURL)
+					<div class="row">
+						<div class="col-xs-12">
+							<center>
+								<div style="font-size:60px; padding-top: 20px" href="#">@Html.DisplayFor(modelItem => item.Title)</div>
+
+								<div style="font-size:30px; padding-top:40px">By Martin Young</div>
+							</center>
+						</div>
+					</div>
+					<div class="row">
+						<div style="font-size:40px; padding-top:20px" class="col-xs-12">
+							<p>
+								@if (item.Body.Length >= 200)                                //This Truncation code wouldn't work until changed to item.Body.Length
+								{                                                               //changed from Model.Body.Length. It was looking for a Model WITHIN
+									@Html.Raw(item.Body.Substring(0, 200))<span> ...</span>		// the foreach loop and i needed to refer to the var item of the loop.
+								}
+								else
+								{
+									@Html.Raw(item.Body)
+								}
+							</p>
+							<p style="padding-top:20px; text-align:right">
+								@Html.DisplayFor(modelItem => item.CreationDate)
+							</p>
+							<p style="padding-top:20px; text-align:right">
+								@Html.DisplayFor(modelItem => item.UpdatedDate)
+							</p>
+						</div>
+					</div>
+						<div style="font-size: 30px; color: green !important">
+							<p style="color: green !important">
+								<center>
+									@if (item.MediaURL != null)
+									{
+										<img class="img-responsive" src="@item.MediaURL" alt="">
+									}
+									<hr />
+
+									@if (User.IsInRole("Admin"))
+									{
+										@Html.ActionLink("Edit", "Edit", new { id = item.Id, style="color:green" })<span>|</span>
+									}
+									@if (User.IsInRole("Admin"))
+									{
+										@Html.ActionLink("Delete", "Delete", new { id = item.Id })<span>|</span>
+									}
+									@Html.ActionLink("Details", "Details", new { slug = item.Slug })
+								</center>
+
+								<div style="border-bottom:3px solid #000000; padding-top:20px"></div>
+								<hr />
+								<div style="border-bottom:3px solid #000000"></div>
+							</p>
+						</div>
+				}
+
+				<div class="text-right">
+					<a href="#" class="btn btn-link">Continue...</a>
+				</div>
+			</div>
+		</div>
+
+		<nav aria-label="Page navigation example" class="clearfix">
+			<ul class="pagination pagination-lg">
+				<li>Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</li>
+				<li>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))</li>
+			</ul>
+		</nav>
+	</div>
+	@*<div class="space-40"></div>*@
+	
+
+	<a href="#" class="scrollToTop"><i class="ion-android-arrow-dropup-circle"></i></a>
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿@model myoung_Portfolio2222.Models.Comment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="padding-left: 50px">
+	<h2>Details</h2>
+
+	<div>
+		<h4>Comment</h4>
+		<hr />
+		<dl class="dl-horizontal">
+			<dt>
+				@Html.DisplayNameFor(model => model.Author.FirstName)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Author.FirstName)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Post.Title)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Post.Title)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Body)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Body)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.CreationDate)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.CreationDate)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.UpdatedDate)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.UpdatedDate)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.UpdatedReason)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.UpdatedReason)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.IsDeleted)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.IsDeleted)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Slug)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Slug)
+			</dd>
+
+		</dl>
+	</div>
+	<p style="padding-left:40px">
+		@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+		@Html.ActionLink("Delete", "Delete", new { id = Model.Id }, null)
+		@Html.ActionLink("Back to List", "Index")
+	</p>
+</div>
