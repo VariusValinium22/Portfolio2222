@@ -970,9 +970,10 @@
     <Content Include="one-page\assets\scss\_variables.scss" />
     <Content Include="one-page\config.rb" />
     <Content Include="Private.config" />
-    <Content Include="one-page\assets\images\Resume.odt" />
     <Content Include="one-page\Martin Young Final Resume %28SF%29.pdf" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\mgyoung-portfolio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\mgyoung-portfolio - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\myoungPortfolio222220180102021027 - Web Deploy.pubxml" />
