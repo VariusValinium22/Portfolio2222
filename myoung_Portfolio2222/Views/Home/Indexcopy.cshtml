@@ -590,20 +590,20 @@
 					<div class="col-md-12">
 						<pre class="brush:js">
 	function palindromeFunc() {
-		var palInput = document.getElementById("word").value;
-		palInput = palInput.toLowerCase().replace(/[^a-z]+/g, ""); 
+		var userWord = document.getElementById("userWord").value;
+		userWord = userWord.toLowerCase().replace(/[^a-z]+/g, ""); 
 																		
 		var iBox = "";	 
 																					
-		for (var i = palInput.length - 1; i >= 0; i--) {
-			iBox += palInput.charAt(i); 
+		for (var i = userWord.length - 1; i >= 0; i--) {
+			iBox += userWord.charAt(i); 
 		}							
-		if (iBox == palInput) {
-		document.getElementById("result").innerHTML = "Your word " + palInput + " is Palindrome.";							
+		if (iBox == userWord) {
+		document.getElementById("result").innerHTML = "Your word " + userWord + " is Palindrome.";							
 		}					
 																	
-		if (iBox != palInput) {
-		document.getElementById("result").innerHTML = "Your word " + palInput + " is NOT Palindrome.";							
+		if (iBox != userWord) {
+		document.getElementById("result").innerHTML = "Your word " + userWord + " is NOT Palindrome.";							
 		}
 
 	}
@@ -612,7 +612,7 @@
 					<div class="col-md-12">
 						<div>
 							<p style="font-size:35px">Type in your word to see if it's a Palindrome!!</p>
-							<input id="word" type="text" style="font-size:40px" /><br />
+							<input id="userWord" type="text" style="font-size:40px" /><br />
 							<button onclick="palindromeFunc()" style="width:180px;height:90px">Palindrome!!</button>
 							<div class="col-md-12">
 								<p id="result" style="font-size:75px !important"></p>
@@ -631,7 +631,7 @@
 					<h3>Javascript Exercise:FizzBuzz</h3>
 					<div class="col-md-12" style="display:inline">
 						<pre class="brush:js">
-							function fizzBuzzNumber(){
+	function fizzBuzzNumber(){
 					var x = document.getElementById("num27").value;
 					var y = document.getElementById("num28").value;
 					var output="";
@@ -647,12 +647,12 @@
 							output += ' buzz ';
 
 						} else {
-							output += i;
+							output += i + " ";
 
 						}
 
 					}
-						document.getElementById("result7").innerHTML = output;
+						output = document.getElementById("result7").innerHTML;
 				}
 							</pre>
 					</div>
