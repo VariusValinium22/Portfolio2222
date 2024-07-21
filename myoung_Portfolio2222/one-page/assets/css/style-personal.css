@@ -1,13 +1,5 @@
 /*/*
 
-Project      : xone - Personal Portfolio
-Version      : v1.2
-Last update  : 11 Nov. 2016
-Author       : Design_mylife (Rakesh Sharma)
-Support email: mylifedesign143@gmail.com
-*/
-/**************************************
-
 =============TABLE OF CONTENT==========
  - Basic
  - Buttons
@@ -419,6 +411,7 @@ blockquote, blockquote p {
 /*
 Button style
 */
+
 .btn {
 	font-family: "Open Sans Condensed", sans-serif;
 	text-transform: uppercase;
@@ -499,10 +492,34 @@ Button style
 		color: #999;
 	}
 
-/*
+.buttons2 {
+	font-size: 30px;
+	font-family: 'Book Antiqua';
+}
+
+	@media screen and (max-width: 780px) {
+		.buttons2 {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+			.buttons2 a {
+				margin-top: 10px;
+				font-size: 1.5rem;
+				padding: 15px;
+				width: 200px;
+				height: 50px;
+				display: block;
+				box-sizing: border-box;
+				text-align: center;
+			}
+	}
+	/*
 Top bar style
 */
-.top-bar {
+	.top-bar {
 	width: 100%;
 	left: 0;
 	top: 0;

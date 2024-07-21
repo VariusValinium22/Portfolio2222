@@ -1,13 +1,4 @@
 /*
-
-Project      : xone - Creative One Page Parallax Template
-Version      : v1.2
-Last update  : 11 Nov. 2016
-Author       : Design_mylife (Rakesh Sharma)
-Support email: mylifedesign143@gmail.com
-*/
-/**************************************
-
 =============TABLE OF CONTENT==========
  - Basic
  - Buttons
@@ -1736,7 +1727,7 @@ Footer styles
 	}
 
 	.hero-static .buttons {
-		display: none;
+		display: flex;
 	}
 
 	.flexslider .slides li h1 {
