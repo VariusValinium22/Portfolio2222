@@ -346,6 +346,7 @@ blockquote, blockquote p {
 }
 
 .center-title {
+	font-size: 50px !important;
 	text-transform: uppercase;
 	letter-spacing: 7px;
 	text-align: center;
@@ -492,34 +493,71 @@ Button style
 		color: #999;
 	}
 
-.buttons2 {
-	font-size: 30px;
+
+
+.profile {
+	display: flex;
+	align-items: center;
+	margin: 0 40px;
+}
+
+.page__section {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+.profile__image {
+	margin-left: 80px;
+	height: auto;
+	display: block;
+}
+
+	.profile__image img {
+		max-width: 100%;
+		min-width: 320px;
+		height: auto;
+		transition: all 0.5s ease; /*to resize your self-image*/
+	}
+
+.profile__info {
+	margin-right: 80px;
+	flex: 1 1 0;
+	font-size: 20px;
 	font-family: 'Book Antiqua';
 }
 
-	@media screen and (max-width: 780px) {
-		.buttons2 {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: space-around;
-		}
-
-			.buttons2 a {
-				margin-top: 10px;
-				font-size: 1.5rem;
-				width: 200px;
-				height: 50px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				padding: 0;			
-			}
+@media screen and (max-width: 1200px) {
+	.profile__image img {
+		max-width: 80%;
 	}
-	/*
+}
+
+@media screen and (max-width: 800px) {
+	.profile__image img {
+		max-width: 60%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.profile__image img {
+		max-width: 50%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.profile__image img {
+		max-width: 40%;
+	}
+}
+
+.profile__description {
+	max-width: 880px;
+}
+/*
 Top bar style
 */
-	.top-bar {
+.top-bar {
 	width: 100%;
 	left: 0;
 	top: 0;
@@ -634,7 +672,7 @@ navigation start
 /*
 Sliders
 */
-.flexslider {
+/*.flexslider {
 	padding: 0;
 	margin: 0;
 	border: 0px;
@@ -653,7 +691,7 @@ Sliders
 
 	.flexslider .slides li p {
 		color: #fff;
-	}
+	}*/
 
 .testi-slider {
 	text-align: center;
@@ -662,15 +700,13 @@ Sliders
 	.testi-slider p {
 		color: red;
 		font-weight: 800;
-		font-size: 3rem;
-		line-height: 2.5rem;
-		margin: 20px 0;
-		font-family: "Book Antiqua";
-		opacity: 0.8;
+		line-height: 6rem;
+		font-family: "Comic Sans MS";
 		text-shadow: 1px 1px green;
+		font-size: calc(18px + 2vw);
 	}
 
-	.testi-slider h5 {	
+	.testi-slider h5 {
 		color: red;
 		font-weight: 800;
 		text-transform: uppercase;
@@ -679,10 +715,13 @@ Sliders
 	}
 
 	.testi-slider i {
-		display: block;
-		font-size: 3rem;
 		color: red;
+		font-weight: 800;
+		font-size: 5rem;
+		font-family: "Comic Sans MS";
 		text-shadow: 1px 1px green;
+		display: block;
+		font-size: calc(18px + 2vw);
 	}
 
 /***home slider**/
@@ -1134,19 +1173,6 @@ Footer styles
 	width: 100%;
 }
 
-.hero-inner {
-	display: table;
-	width: 100%;
-	height: 100%;
-}
-
-	.hero-inner .hero-content {
-		display: table-cell;
-		width: 100%;
-		height: 100%;
-		vertical-align: middle;
-	}
-
 .mouse-down {
 	position: absolute;
 	width: 100%;
@@ -1203,28 +1229,108 @@ Footer styles
 }
 
 /************Hero static with parallax bg************/
+
+.hero-outer {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Book Antiqua';
+}
+
 .hero-static h1 {
 	color: black;
-	text-transform: uppercase;
-	font-size: 4rem;
-	letter-spacing: 14px;
-	font-weight: 800;
-	/*text-shadow: 4px 4px orange;*/
+	font-size: calc(20px + 4vw);
+	padding: calc(10px + 0.5vw) calc(20px + 1vw);
 }
 
-	.hero-static h1 span {
-		color: black;
-		display: inline-block;
-		/*text-shadow: 4px 4px orange;*/
+.buttons2 {
+	display: flex;
+	font-size: 50px;
+	gap: 10px;
+	font-family: 'Book Antiqua';
+	font-size: calc(20px + 1vw);
+}
+
+	.buttons2 a {
+		padding: calc(10px + 0.5vw) calc(20px + 1vw);
 	}
 
-.hero-static p {
-	color: black;
-	font-size: 50px;
-	line-height: 150px;
-	font-weight: 800;
-	/*text-shadow: 4px 4px orange;*/
+@media screen and (max-width: 780px) {
+	.hero-static {
+		display: flex;
+		text-align: center;
+	}
+
+		.hero-static h1 {
+			font-size: calc(15px + 3vw);
+			padding: 0;
+		}
+
+	.buttons2 {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-size: calc(15px + 1vw);
+	}
+
+		.buttons2 a {
+			margin-top: 10px;
+			width: 200px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+		}
+
+	.testi-slider p {
+		line-height: 3rem;
+		font-size: calc(15px + 1vw);
+	}
 }
+
+@media screen and (max-width: 480px) {
+	.buttons2 {
+		font-size: calc(16px + 1vw);
+	}
+
+		.buttons2 a {
+			padding: calc(8px + 0.5vw) calc(16px + 1vw);
+		}
+}
+
+@media screen and (max-width: 1600px) {
+	.hero static {
+		font-size: 30px;
+	}
+
+	.hero-static h1 {
+		/*font-size: 50px;*/
+		line-height: 150px;
+		font-weight: 800;
+	}
+
+	.profile {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.profile__image {
+		margin-bottom: 20px;
+		margin: 0 30px;
+	}
+
+	.profile__info {
+		max-width: 642px;
+		text-align: center;
+		margin: 0 30px;
+	}
+}
+
+/*===================================*/
 
 .buttons {
 	margin-top: 20px;
@@ -1555,45 +1661,29 @@ Footer styles
 	}
 }
 
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
 	.navbar-toggleable-sm > .container {
 		padding-right: 15px;
 		padding-left: 15px;
 		width: 100%;
-	}
-
-	.hero-static h1 {
-		font-size: 1.5rem;
-		letter-spacing: 0px;
-	}
-
+	}*/
+/*
 	.hero-static .buttons {
 		display: none;
-	}
-
-	.hero-static p {
-		font-size: 14px;
-		color:green;
-	}
+	}*/
 
 	.about-tabs li a {
 		font-size: 1rem;
 	}
 
-	.flexslider .slides li h1 {
+/*	.flexslider .slides li h1 {
 		font-size: 2rem;
 		letter-spacing: 0px;
-	}
+	}*/
 
 	.parallax-text h2 {
 		font-size: 2rem;
 		line-height: 3.5rem;
-	}
-
-	.testi-slider p {
-		font-size: 1.5rem;
-		line-height: 2rem;
-		margin: 10px 0;
 	}
 
 	.contact-details {
@@ -1671,19 +1761,13 @@ Footer styles
 		line-height: 2.5rem;
 	}
 
-	.testi-slider p {
-		font-size: 1rem;
-		line-height: 1.2rem;
-		margin: 10px 0;
-	}
-
 	.transparent-nav.bg-inverse, .transparent-nav.bg-inverse.shrink {
 		padding: 5px 0 !important;
 		background-color: #292b2c !important;
 	}
 
 	#anchorPic:active {
-		position: relative;
+		position: relative;he
 		width: 250px;
 		height: 100px;
 	}
