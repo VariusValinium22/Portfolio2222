@@ -142,7 +142,7 @@ namespace myoung_Portfolio2222
 		}
 		//public class PersonalEmail
 		//{
-		//	public async Task SendAsync(MailMessage message)
+		//	public async Task SendAsync(MailMessage message) 
 		//	{
 		//		var GmailUsername = WebConfigurationManager.AppSettings["username"];
 		//		var GmailPassword = WebConfigurationManager.AppSettings["password"];
