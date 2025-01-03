@@ -5,12 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Budgeter.Controllers
 {
     public class HouseholdsController : Controller
     {
-		private ApplicationDbContext db = new ApplicationDbContext;
+		private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Households
         public ActionResult Index()
         {
@@ -19,7 +20,7 @@ namespace Budgeter.Controllers
 
 		public ActionResult Details(int? id)
 		{
-			HouseholdViewModel model = new HouseholdViewModel;
+			HouseholdViewModel model = new HouseholdViewModel();
 			if (id == null)
 			{
 				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -59,7 +60,7 @@ namespace Budgeter.Controllers
 
 			int catTotal = 0;
 
-			foreach (var category in db.Categories;
+			foreach (var category in db.Categories)
 			{
 				catTotal++;
 			}
@@ -79,7 +80,7 @@ namespace Budgeter.Controllers
 			model.CategoryCount = catCount;
 
 			int transCount = 0;
-			model.CategoryTotals = new double[catTotal = 1];
+			model.CategoryTotals = new double[catTotal + 1];
 
 			foreach (var category in model.MyCategories)
 			{
@@ -133,16 +134,20 @@ namespace Budgeter.Controllers
 			return View(household);
 		}
 
-		public Action Result Assign(int id)
+		public ActionResult Assign(int id)
 		{
-			var household = db.Households.FInd(id);
+			var household = db.Households.Find(id);
 			HouseholdUsersHelper helper = new HouseholdUsersHelper(db);
 			var model = new AssignUsersViewModel();
 
 			model.Household = household;
-			model.SelectedUsers = helper.ListAssignedUsers(id).ToArray();
-			model.Users = new MultiSelectList(model.SelectedUsers.Where(u => (u.DisplayName != "N/A" && u.DisplayName != "(Remove Assigned User)")).OrderBy(uint => uint.FirstName), "Id", "DisplayName", model.SelectedUsers);
-			return View(model);
+			model.SelectedUsers = helper.ListAssignedUsers(id).Select(u => u.Id).ToArray();
+            model.Users = new MultiSelectList(
+                db.Users.Where(u => u.DisplayName != "N/A" && u.DisplayName != "(Remove Assigned User)")
+                        .OrderBy(user => user.FirstName),
+                "Id", "DisplayName", model.SelectedUsers
+            );
+            return View(model);
 		}
 
 		[HttpPost]
@@ -155,6 +160,7 @@ namespace Budgeter.Controllers
 
 				}
 			}
+			return RedirectToAction("Index", "Home");
 		}
     }
 }
