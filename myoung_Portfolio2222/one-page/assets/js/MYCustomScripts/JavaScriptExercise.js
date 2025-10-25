@@ -100,12 +100,8 @@ function factorializeNum() {
 	for (var i = n; i >= 1; i--) {
 		factorializeTotal *= i;
 	}
-
 	document.getElementById("result6").innerHTML = factorializeTotal;
-
 }
-
-
 //I found this equation for fizzBuzz on youtube and adapted it to 
 //a user being able to put any 2 numbers into the equation instead of 
 // it being the usual  multiples of 3 and 5.
@@ -115,25 +111,18 @@ function factorializeNum() {
 //i also don't think the numbers are equating correctly grrr
 
 function fizzBuzzNumber() {
-	var x = document.getElementById("num27").value;
-	var y = document.getElementById("num28").value;
-	var output = "";
-	for (var i = 1; i <= 100; i++) {
+  const x = Number(document.getElementById("num27").value);
+  const y = Number(document.getElementById("num28").value);
 
-		if (i % x === 0 && i % y === 0) {
-			output += ' fizzBuzz ';
+  let output = "";
+  for (let i = 1; i <= 100; i++) {
+    let t;
+    if (i % x === 0 && i % y === 0) t = "fizzBuzz";
+    else if (i % x === 0)           t = "fizz";
+    else if (i % y === 0)           t = "buzz";
+    else                            t = String(i);
 
-		} else if (i % x === 0) {
-			output += ' fizz ';
-
-		} else if (i % y === 0) {
-			output += ' buzz ';
-
-		} else {
-			output += i;
-
-		}
-		document.getElementById("result7").innerHTML = output;
-
-	}
+    output += t + " ";   // <- one consistent space after every token
+  }
+  document.getElementById("result7").textContent = output.trim();
 }

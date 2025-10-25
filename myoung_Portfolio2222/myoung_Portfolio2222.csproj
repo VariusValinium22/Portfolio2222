@@ -963,6 +963,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="one-page\2025_01_01_Resume.pdf" />
     <Content Include="one-page\2025_09_18_Martin_Young_Resume.pdf" />
+    <Content Include="one-page\Martin_Young_Resume.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml">
       <SubType>Designer</SubType>
