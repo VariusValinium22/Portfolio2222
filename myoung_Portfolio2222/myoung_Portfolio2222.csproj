@@ -662,9 +662,10 @@
     <Content Include="one-page\assets\images\BlueBuildings.jpg" />
     <Content Include="one-page\assets\images\blueSkies.jpg" />
     <Content Include="one-page\assets\images\BuildingFour.jpg" />
+    <Content Include="one-page\assets\images\EventrianTemp300x300.png" />
     <Content Include="one-page\assets\images\makeShark300x300.png" />
     <Content Include="one-page\assets\images\MECoderFoundryOrangeTie.jpg" />
-    <Content Include="one-page\assets\images\MyShop300x300.png" />
+    <Content Include="one-page\assets\images\MyShopPic300x300.png" />
     <Content Include="one-page\assets\images\PeaCockSpiral.jpg" />
     <Content Include="one-page\assets\images\ProMeCropped.jpg" />
     <Content Include="one-page\assets\images\Windows.jpg" />

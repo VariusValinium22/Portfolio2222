@@ -315,7 +315,7 @@ button, input, optgroup, select, textarea {
 			animation: spin 1.5s linear infinite;
 		}
 
-/*@keyframes spin {
+@keyframes spin {
 	0% {
 		transform: rotate(0deg);
 	}
@@ -323,7 +323,7 @@ button, input, optgroup, select, textarea {
 	to {
 		transform: rotate(1turn);
 	}
-}*/
+}
 
 .modal {
 	z-index: 99999 !important;
@@ -351,7 +351,6 @@ blockquote, blockquote p {
 	letter-spacing: 7px;
 	text-align: center;
 	font-weight: 400;
-	font-size: 1.8rem;
 	margin-bottom: 25px;
 }
 
@@ -868,53 +867,154 @@ icon-boxes
 		transition: all 0.3s;
 	}
 
-		.services-list li h4 {
-			text-align: center;
-			font-weight: 400;
-			text-transform: lowercase;
-			font-size: 2rem;
-			letter-spacing: 2px;
-			color: lawngreen;
-			text-shadow: 1px 1px black;
-		}
-
-		.services-list li p {
-			text-align: center;
-			font-size: 1.5rem;
-			color: black;
-			text-shadow: 1px 1px orange;
-		}
-
-		.services-list li:hover {
-			background-color: #0992bf;
-			border-color: #0992bf;
-			color: #fff;
-		}
-
-			.services-list li:hover h4 {
-				color: #fff;
-			}
-
-	.process-box h2 {
-		font-weight: 300;
-		font-size: 20px;
-		text-transform: uppercase;
-		letter-spacing: 5px;
+	.services-list li h4 {
+		text-align: center;
+		font-weight: 400;
+		text-transform: lowercase;
+		font-size: 2rem;
+		letter-spacing: 2px;
+		color: lawngreen;
+		text-shadow: 1px 1px black;
 	}
 
-	@media (min-width: 768px) {
-		.services-list li:nth-child(1) {
-			border-right: 1px solid #eee;
-		}
-
-		.services-list li:nth-child(3), .services-list li:nth-child(5) {
-			border-right: 1px solid #eee;
-		}
-
-		.services-list li:nth-child(1), .services-list li:nth-child(2), .services-list li:nth-child(3), .services-list li:nth-child(4) {
-			border-bottom: 1px solid #eee;
-		}
+	.services-list li p {
+		text-align: center;
+		font-size: 1.5rem;
+		color: black;
+		text-shadow: 1px 1px orange;
 	}
+
+	.services-list li:hover {
+		background-color: #0992bf;
+		border-color: #0992bf;
+		color: #fff;
+	}
+
+	.services-list li:hover h4 {
+		color: #fff;
+	}
+
+/*project card features*/
+
+	.services-list li.project-card {
+		padding: 0;
+		position: relative;
+		border: 2px solid #000;
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+		cursor: pointer;
+	}
+
+	.services-list li.project-card:hover {
+		background-color: #fff;
+		filter: none;
+	}
+
+	.project-card-link {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.project-card-link:hover,
+	.project-card-link:focus {
+		text-decoration: none;
+		outline: 2px solid #0992bf;
+		outline-offset: -2px;
+	}
+
+	.project-card-image {
+		height: 280px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: top center;
+	}
+
+.project-card-meta {
+	position: absolute;  
+	bottom: 0;  
+	left: 0; 
+	right: 0;
+	padding: 14px 16px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.25);
+}
+
+.project-card-title {
+	display: block;
+	color: #fff;
+	font-family: "Open Sans Condensed", sans-serif;
+	font-weight: 700;
+	font-size: 2rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.project-card-tech {
+	display: block;
+	margin-top: 6px;
+	color: #fff;
+	font-family: "Roboto", sans-serif;
+	font-size: 1.75rem;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 780px) {
+
+	/* Move entire card column in from screen edges on mobile view */
+	#services .services-list {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.project-card-image {
+		height: 240px;
+	}
+
+	.project-card-meta {
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: 0;
+		padding: 10px 12px;
+	}
+
+	.project-card-title {
+		font-size: 1.5rem;
+	}
+
+	.project-card-tech {
+		font-size: 1rem;
+		margin-top: 4px;
+	}
+}
+
+.process-box h2 {
+	font-weight: 300;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+
+@media (min-width: 768px) {
+	.services-list li:nth-child(1) {
+		border-right: 1px solid #eee;
+	}
+
+	.services-list li:nth-child(3), .services-list li:nth-child(5) {
+		border-right: 1px solid #eee;
+	}
+
+	.services-list li:nth-child(1), .services-list li:nth-child(2), .services-list li:nth-child(3), .services-list li:nth-child(4) {
+		border-bottom: 1px solid #eee;
+	}
+}
 	/*
 Progess bars
 */
@@ -1183,9 +1283,11 @@ Footer styles
 		font-size: 13px;
 	}
 
-		.footer span {
+		.footer span,
+		.footer-copyright {
 			color: #fff;
 			display: block;
+			line-height: 1.4;
 		}
 
 		.footer ul {
@@ -1294,15 +1396,26 @@ Footer styles
 
 	.buttons2 {
 		display: flex;
-		font-size: 50px;
 		gap: 10px;
 		font-family: 'Book Antiqua';
-		font-size: calc(20px + 1vw);
+		font-size: calc(16px + 1vw);
+	}
+
+	.buttons2 a {
+		padding: calc(10px + 0.5vw) calc(20px + 1vw);
+	}
+
+	/* Laptop / tablet landscape — 1366 & 1440 presets */
+@media screen and (min-width: 781px) and (max-width: 1600px) {
+	.buttons2 {
+		font-size: calc(13px + 0.65vw); /* ~22px at 1366, ~23px at 1440 */
 	}
 
 		.buttons2 a {
-			padding: calc(10px + 0.5vw) calc(20px + 1vw);
+			padding: calc(7px + 0.3vw) calc(14px + 0.65vw);
+			font-family: inherit;
 		}
+}
 
 	@media screen and (max-width: 780px) {
 		.hero-static {
@@ -1319,13 +1432,13 @@ Footer styles
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			font-size: calc(15px + 1vw);
+			font-size: 1.2rem; 
 		}
 
 			.buttons2 a {
-				margin-top: 10px;
-				width: 200px;
-				height: 50px;
+				margin-top: 6px;
+				width: 100px; 
+				height: 30px; 
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -1338,18 +1451,47 @@ Footer styles
 		}
 
 		.center-title {
-			font-size: calc(20px + 4vw) !important;
+			font-size: calc(13px + 1.5vw) !important; /* ~25px at 780, ~18px on S8+ */
+			letter-spacing: 3px;
+			margin-bottom: 16px;
+		}
+		
+		.footer span,
+		.footer-copyright {
+			letter-spacing: 0.02em;
+			padding: 0 12px;
 		}
 	}
 
-	@media screen and (max-width: 480px) {
-		.buttons2 {
-			font-size: calc(16px + 1vw);
+
+
+	@media screen and (max-width: 780px) {
+
+		#agency .profile {
+			margin: 0 10px; /* was 40px — pull block wider */
 		}
 
-			.buttons2 a {
-				padding: calc(8px + 0.5vw) calc(16px + 1vw);
-			}
+		#agency .profile__image {
+			margin: 0 0 12px 0; /* drop 30px side margins on photo */
+		}
+
+		#agency .profile__image img {
+			min-width: 0; /* was 320px — too wide on small phones */
+			max-width: 85%;
+		}
+
+		#agency .profile__info {
+			max-width: none; /* cancel 642px cap */
+			width: 100%;
+			margin: 0 8px; /* small gutter, or 0 for edge-to-edge */
+			padding: 0;
+			font-size: 14px; /* keep your smaller mobile size */
+			line-height: 1.55;
+		}
+
+		#agency .profile__description {
+			max-width: 100%;
+		}
 	}
 
 	@media screen and (max-width: 1600px) {
@@ -1379,6 +1521,25 @@ Footer styles
 			margin: 0 30px;
 		}
 	}
+
+/* Laptop — hero title (1366 & 1440) */
+@media screen and (min-width: 781px) and (max-width: 1600px) {
+	.hero-static h1 {
+		font-size: calc(17px + 3vw); /* ~58px at 1366, ~60px at 1440 — was ~75–78px */
+		line-height: 1.15;
+		padding: calc(6px + 0.3vw) calc(14px + 0.65vw);
+	}
+
+	.footer span,
+	.footer-copyright {
+	}
+
+	.center-title {
+		font-size: calc(14px + 1.2vw) !important; /* ~30px at 1366, ~31px at 1440 */
+		letter-spacing: 5px;
+		margin-bottom: 20px;
+	}
+}
 
 	/*===================================*/
 
@@ -1833,4 +1994,25 @@ Footer styles
 }
 .myBlog {
 display:inline-block !important;
+}
+
+
+/* Footer copyright — keep at END of file so it wins */
+footer.footer .footer-copyright {
+	font-size: 30px !important;
+	line-height: 1.4;
+	letter-spacing: 0.02em;
+}
+
+@media screen and (min-width: 781px) and (max-width: 1600px) {
+	footer.footer .footer-copyright {
+		font-size: 20px !important;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	footer.footer .footer-copyright {
+		font-size: 12px !important;
+		padding: 0 12px;
+	}
 }

@@ -2,7 +2,7 @@ $(function () {
     "use strict";
     //preloader
     $(window).preloader({
-        delay:500
+        delay:1000
     });
 //sticky header
     $(window).on("resize", function () {
