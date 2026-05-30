@@ -680,7 +680,9 @@
     <Content Include="one-page\assets\images\KittenButton.jpg" />
     <Content Include="one-page\assets\images\LionLooking.jpg" />
     <Content Include="one-page\assets\images\LynxLooking.jpg" />
+    <Content Include="one-page\assets\images\makeShark300x300.png" />
     <Content Include="one-page\assets\images\MECoderFoundryOrangeTie.jpg" />
+    <Content Include="one-page\assets\images\MyShop300x300.png" />
     <Content Include="one-page\assets\images\NewLynx%281%29.jpg" />
     <Content Include="one-page\assets\images\NewLynx.jpg" />
     <Content Include="one-page\assets\images\PeaCockSpiral.jpg" />
@@ -691,6 +693,7 @@
     <Content Include="one-page\assets\images\TradeCenterLightning.jpg" />
     <Content Include="one-page\assets\images\WhiteTiger.jpg" />
     <Content Include="one-page\assets\images\Windows.jpg" />
+    <Content Include="one-page\assets\images\wtwrPic300x300.png" />
     <Content Include="one-page\assets\ionicons\css\ionicons.css" />
     <Content Include="one-page\assets\ionicons\css\ionicons.min.css" />
     <Content Include="one-page\assets\ionicons\fonts\ionicons.svg" />
@@ -959,8 +962,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="one-page\Martin_Young_Resume.pdf" />
-    <Content Include="one-page\Full_Martin_Young_Resume.pdf" />
+    <Content Include="one-page\Martin_Young_Software_Engineer_Resume.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml">
       <SubType>Designer</SubType>
